@@ -1,10 +1,56 @@
+import { useState } from "react";
 import "./styles.css";
 
 export default function App() {
+  const [purchase, setPurchase] = useState();
+  const [qty, setQty] = useState();
+  const [currPrice, setCurrPrice] = useState();
+
+  function clickHandler() {
+    calcStock();
+  }
+
+  function calcStock() {
+    let SP = Number(purchase);
+    let Quantity = Number(qty);
+    let CP = Number(currPrice);
+    if (SP > CP) {
+      const loss = (SP - CP) * Quantity;
+      const lossProfit = ((SP - CP) * 100) / SP;
+      console.log("You're loss is " + loss);
+      console.log("You're loss Profit is " + lossProfit + "%");
+    } else if (CP > SP) {
+      const profit = (CP - SP) * Quantity;
+      const profitPercentage = ((CP - SP) * 100) / SP;
+      console.log("You're loss is " + profit);
+      console.log("You're loss Profit is " + profitPercentage + "%");
+    } else {
+      console.log("Plase Enter A Valid Number");
+    }
+  }
+
+  function purchasePrice(e) {
+    setPurchase(e.target.value);
+  }
+
+  function stockQuantity(e) {
+    setQty(e.target.value);
+  }
+
+  function currentPrice(e) {
+    setCurrPrice(e.target.value);
+  }
+
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <h1>Stock : Check Profit OR Loss</h1>
+      <label>Enter Purchase Price: </label>
+      <input onChange={purchasePrice} type="number" />
+      <label>Stock Quantity: </label>
+      <input onChange={stockQuantity} type="number" />
+      <label>Enter Current Price: </label>
+      <input onChange={currentPrice} type="number" />
+      <button onClick={clickHandler}>Tell Me!!</button>
     </div>
   );
 }
