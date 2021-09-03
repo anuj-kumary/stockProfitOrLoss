@@ -18,7 +18,6 @@ export default function App() {
     if (SP > CP) {
       const loss = (SP - CP) * Quantity;
       const lossProfit = ((SP - CP) * 100) / SP;
-      setOutput();
       setOutput(
         "You're loss is " +
           loss +
@@ -29,7 +28,6 @@ export default function App() {
     } else if (CP > SP) {
       const profit = (CP - SP) * Quantity;
       const profitPercentage = ((CP - SP) * 100) / SP;
-      setOutput();
       setOutput(
         "You're Profit is " +
           profit +
