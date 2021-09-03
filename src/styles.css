@@ -1,9 +1,16 @@
+body {
+  background-color: #3730a3;
+}
 .App {
   font-family: sans-serif;
   text-align: center;
 }
+h1 {
+  color: #ffffff;
+}
 label {
   display: block;
+  color: #ffffff;
 }
 input {
   padding: 0.5rem;
@@ -14,4 +21,21 @@ button {
   display: block;
   margin: auto;
   padding: 0.5rem 1rem;
+  font-size: 1rem;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:hover {
+  border: 1px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+}
+.output {
+  color: #ffffff;
+  margin: 1rem auto;
+  width: 50%;
+
+  border: 1px solid #ffffff;
+  padding: 1rem;
 }

@@ -5,6 +5,7 @@ export default function App() {
   const [purchase, setPurchase] = useState();
   const [qty, setQty] = useState();
   const [currPrice, setCurrPrice] = useState();
+  const [output, setOutput] = useState();
 
   function clickHandler() {
     calcStock();
@@ -17,15 +18,27 @@ export default function App() {
     if (SP > CP) {
       const loss = (SP - CP) * Quantity;
       const lossProfit = ((SP - CP) * 100) / SP;
-      console.log("You're loss is " + loss);
-      console.log("You're loss Percentage is " + lossProfit + "%");
+      setOutput();
+      setOutput(
+        "You're loss is " +
+          loss +
+          " You're loss Percentage is " +
+          lossProfit +
+          "%"
+      );
     } else if (CP > SP) {
       const profit = (CP - SP) * Quantity;
       const profitPercentage = ((CP - SP) * 100) / SP;
-      console.log("You're Profit is " + profit);
-      console.log("You're Profit Percentage is " + profitPercentage + "%");
+      setOutput();
+      setOutput(
+        "You're Profit is " +
+          profit +
+          " You're Profit Percentage is " +
+          profitPercentage +
+          "%"
+      );
     } else {
-      console.log("Plase Enter A Valid Number");
+      setOutput("Plase Enter A Valid Number");
     }
   }
 
@@ -51,6 +64,7 @@ export default function App() {
       <label>Enter Current Price: </label>
       <input onChange={currentPrice} type="number" />
       <button onClick={clickHandler}>Tell Me!!</button>
+      <div className="output">{output}</div>
     </div>
   );
 }
