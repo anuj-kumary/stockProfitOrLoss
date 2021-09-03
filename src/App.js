@@ -18,12 +18,12 @@ export default function App() {
       const loss = (SP - CP) * Quantity;
       const lossProfit = ((SP - CP) * 100) / SP;
       console.log("You're loss is " + loss);
-      console.log("You're loss Profit is " + lossProfit + "%");
+      console.log("You're loss Percentage is " + lossProfit + "%");
     } else if (CP > SP) {
       const profit = (CP - SP) * Quantity;
       const profitPercentage = ((CP - SP) * 100) / SP;
-      console.log("You're loss is " + profit);
-      console.log("You're loss Profit is " + profitPercentage + "%");
+      console.log("You're Profit is " + profit);
+      console.log("You're Profit Percentage is " + profitPercentage + "%");
     } else {
       console.log("Plase Enter A Valid Number");
     }
